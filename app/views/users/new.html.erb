@@ -1,0 +1,18 @@
+<%- model_class = User -%>
+
+	<div class="page-header">
+  		<h1>Sign Up</h1>
+	</div>
+
+	<%= simple_form_for @user, :html => { :class => 'form-horizontal' } do |f| %>
+  		<%= f.input :email %>
+  		<%= f.input :first_name %>
+  		<%= f.input :last_name %>
+  		<%= f.input :password %>
+  		<%= f.input :password_confirmation %>
+
+  	<div class="form-actions">
+    	<%= f.button :submit, :value => "Sign Up", :class => 'btn-primary' %>
+  	</div>
+
+<% end %>

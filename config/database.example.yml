@@ -1,0 +1,26 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: elephund_development
+  pool: 5
+  username: elephund
+  host: localhost
+  password: elephund99
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: elephund_test
+  pool: 5
+  username: elephund
+  host: localhost
+  password: elephund99
+
+# production:
+#   adapter: postgresql
+#   encoding: unicode
+#   database: elephund_production
+#   pool: 5
+#   username: elephund
+#   password: elephund99
+#   timeout: 5000

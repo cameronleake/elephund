@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+	<head>
+  		<title>Elephund</title>
+	  	<!--[if lt IE 9]>
+	    	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+	  	<![endif]-->
+  		<%= stylesheet_link_tag    "application", :media => "all" %>
+  		<%= javascript_include_tag "application" %>
+  		<%= csrf_meta_tag %>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+		<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/css/bootstrap-responsive.min.css" rel="stylesheet">		
+	</head>
+	
+	<body>
+		<div class="navbar navbar-inverse navbar-fixed-top">
+		  <div class="navbar-inner">
+		    <div class="container">
+		      <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		      </button>
+		   	<a class="brand" <%= link_to "Elephund", root_path %></a>
+
+		      <!-- Everything you want hidden at 940px or less, place within here -->
+		      <div class="nav-collapse collapse">
+					<% if current_user %>
+			    		<ul class="nav">
+				     		<li class="<%= 'active' if current_page?(account_path) %>"><%= link_to "Account", account_path %></li>								
+							<li class="divider-vertical"></li>
+			      		<li class="<%= 'active' if current_page?(user_path(current_user[:id])) %>"><%= link_to "Profile", profile_path %></li>
+							<li class="divider-vertical"></li>
+			      		<li><%= link_to "Contact", contact_path %></li>
+							<li class="divider-vertical"></li>
+			      		<li><%= link_to "Log Out", logout_path %></li>
+			    		</ul>
+						<div class="navbar-text pull-right">
+							Logged in as <%= current_user.email %>
+						</div>
+					<% else  %>	
+				   	<ul class="nav">
+							<li><%= link_to "Login", login_path %></li>
+							<li class="divider-vertical"></li>
+			      		<li><%= link_to "Sign Up", signup_path %></li>
+							<li class="divider-vertical"></li>
+			      		<li><%= link_to "Tour", tour_path %></li>
+							<li class="divider-vertical"></li>
+			      		<li><%= link_to "Contact", contact_path %></li>
+				    	</ul>
+					<% end %>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+
+		<div id="container" align="center">	
+			<% flash.each do |name, msg| %>
+				<div class="alert alert-<%= name == :notice ? "success" : "error" %>">
+				<button type="button" class="close" data-dismiss="alert">&times;</button>
+					<%= msg %>
+				</div>
+			<% end %>
+			
+			<% if current_user %>
+				<div class="row" align="left">
+					<div class="span12">
+						<%= yield %>
+					</div>
+				</div>
+				
+			<% else %>
+			<div class="row" align="left">
+				<div class="span9">
+					<%= yield %>
+				</div>
+				<div class="span3">
+					<h2>Whats New</h2>
+					<div class="accordion" id="accordion2">
+						<div class="accordion-group">
+							<div class="accordion-heading">
+						   	<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
+						      	Build 0.0.11: 28/03/13
+						      </a>
+						    </div>
+						    <div id="collapseOne" class="accordion-body collapse in">
+						      <div class="accordion-inner">
+									<p>A few new goodies today to enhance your enjoyment of Elephund!</p>
+						      	<p> - New Elephund theme</p>
+									<p> - New Contact Us form</p>
+									<p> - Improved email notifications when resetting password</p>
+						      </div>
+						    </div>
+						  </div>
+						  <div class="accordion-group">
+						    <div class="accordion-heading">
+						      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
+						      	Build 0.0.10: 27/03/13
+						      </a>
+						    </div>
+						    <div id="collapseTwo" class="accordion-body collapse">
+						      <div class="accordion-inner">
+						      	<p>Check out some new Elephund features:</p>
+									<p> - Reset your forgotten password, (<%= link_to "try it here", new_password_reset_path %>)</p>
+									<p> - Nav bar is now collapsable on resizing the window, check it out!</p>
+						      </div>
+						    </div>
+						  </div>
+						</div>
+						
+					</div>
+				</div>
+			<% end %>
+		</div>
+		
+		<div class="navbar navbar-fixed-bottom" align="center">
+			Build 0.0.11
+		</div>
+		
+	</body>
+</html>

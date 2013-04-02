@@ -1,0 +1,17 @@
+<%- model_class = User -%>
+
+	<div class="page-header">
+  		<h1>Reset Password</h1>
+	</div>
+	
+	<div class="well well-small"><strong><%= @user.email %></strong></div>
+
+	<%= simple_form_for @user, :url => password_reset_path(params[:id]) do |f| %>
+  		<%= f.input :password %>
+  		<%= f.input :password_confirmation %>
+
+  	<div class="form-actions">
+    	<%= f.button :submit, :value => "Update Password", :class => 'btn-primary' %>
+  	</div>
+
+<% end %>
