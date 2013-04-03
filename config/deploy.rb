@@ -1,4 +1,5 @@
 require "bundler/capistrano"
+require "rvm/capistrano"
 
 server "182.160.154.120", :web, :app, :db, primary: true
 
@@ -12,9 +13,15 @@ set :scm, "git"
 set :repository, "git@github.com:cameronleake/#{application}.git"
 set :branch, "master"
 
-set :default_environment, {
-  'PATH' => "/opt/ruby-enterprise/bin/:$PATH"
-}
+# Add RVM's lib directory to the load path.
+$:.unshift(File.expand_path('./lib', ENV['rvm_path']))
+
+set :rvm_ruby_string, '1.9.3'
+set :rvm_type, :user  # Don't use system-wide RVM
+
+# set :default_environment, {
+#   'PATH' => "/opt/ruby-enterprise/bin/:$PATH"
+# }
 
 default_run_options[:pty] = true
 ssh_options[:forward_agent] = true
