@@ -12,15 +12,12 @@ set :scm, "git"
 set :repository, "git@github.com:cameronleake/#{application}.git"
 set :branch, "master"
 
-# Add RVM's lib directory to the load path.
-$:.unshift(File.expand_path('./lib', ENV['rvm_path']))
-
-set :rvm_ruby_string, '1.9.3'
-set :rvm_type, :user  # Don't use system-wide RVM
-
-# set :default_environment, {
-#   'PATH' => "/opt/ruby-enterprise/bin/:$PATH"
-# }
+set :default_environment, { 
+  'PATH' => "/home/deployer/.rvm/rubies/ruby-1.9.3-p392/bin:/home/deployer/.rvm/gems/ruby-1.9.3-p392/bin:/home/deployer/.rvm/bin:$PATH",
+  'RUBY_VERSION' => 'ruby 1.9.3',
+  'GEM_HOME' => '/home/deployer/.rvm/gems/ruby-1.9.3-p392',
+  'GEM_PATH' => '/home/deployer/.rvm/gems/ruby-1.9.3-p392' 
+}
 
 default_run_options[:pty] = true
 ssh_options[:forward_agent] = true
