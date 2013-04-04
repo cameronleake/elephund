@@ -9,18 +9,19 @@ ElephundRails::Application.configure do
   config.action_controller.perform_caching = true
 
   # Disable Rails's static asset server (Apache or nginx will already do this)
-  config.serve_static_assets = false  # CHANGED FROM FALSE FOR DEPLOYMENT WITH CAPISTRANO
+  config.serve_static_assets = false
 
   # Compress JavaScripts and CSS
   config.assets.compress = true
 
   # Don't fallback to assets pipeline if a precompiled asset is missed
-  config.assets.compile = false  # CHANGED FROM FALSE FOR DEPLOYMENT WITH CAPISTRANO
+  config.assets.compile = true  # CHANGED FROM FALSE FOR DEPLOYMENT WITH CAPISTRANO
 
   # Generate digests for assets URLs
   config.assets.digest = true
   
-  # config.assets.initialize_on_precompile = false # ADDED FOR DEPLOYMENT WITH CAPISTRANO
+  config.assets.initialize_on_precompile = false # ADDED FOR DEPLOYMENT WITH CAPISTRANO
+  config.assets.precompile += ["*.js", "*.css"]
 
   # Defaults to nil and saved in location specified by config.assets.prefix
   # config.assets.manifest = YOUR_PATH
