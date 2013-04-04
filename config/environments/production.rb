@@ -15,13 +15,12 @@ ElephundRails::Application.configure do
   config.assets.compress = true
 
   # Don't fallback to assets pipeline if a precompiled asset is missed
-  config.assets.compile = true  # CHANGED FROM FALSE FOR DEPLOYMENT WITH CAPISTRANO
+  config.assets.compile = false
 
   # Generate digests for assets URLs
   config.assets.digest = true
   
-  config.assets.initialize_on_precompile = false # ADDED FOR DEPLOYMENT WITH CAPISTRANO
-  config.assets.precompile += ["*.js", "*.css"]
+  # config.assets.initialize_on_precompile = false # ADDED FOR DEPLOYMENT WITH CAPISTRANO
 
   # Defaults to nil and saved in location specified by config.assets.prefix
   # config.assets.manifest = YOUR_PATH
