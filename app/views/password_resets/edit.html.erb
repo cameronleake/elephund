@@ -4,14 +4,19 @@
   		<h1>Reset Password</h1>
 	</div>
 	
-	<div class="well well-small"><strong><%= @user.email %></strong></div>
+	<%= simple_form_for @user, :url => password_reset_path(params[:id]), :html => { :class => 'form-horizontal' } do |f| %>
 
-	<%= simple_form_for @user, :url => password_reset_path(params[:id]) do |f| %>
+		<div class="well well-small">
+			<div class = "controls">	
+				<strong><%= @user.email %></strong>
+			</div>
+		</div>
+	
   		<%= f.input :password %>
   		<%= f.input :password_confirmation %>
 
   	<div class="form-actions">
-    	<%= f.button :submit, :value => "Update Password", :class => 'btn-primary' %>
+    	<%= f.button :submit, :value => "Update", :class => 'btn-primary' %>
   	</div>
 
 <% end %>

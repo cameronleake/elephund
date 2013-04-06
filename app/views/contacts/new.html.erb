@@ -5,6 +5,11 @@
 	</div>
 
 	<%= simple_form_for @contact, :html => { :class => 'form-horizontal' } do |f| %>
+	
+	<div class="controls">
+		<p>Please drop us a line for any suggestions, issues, bugs or just to say hi!</p>
+	</div>
+	
 	  	<%= f.input :name %>
 	  	<%= f.input :email %>
 	  	<%= f.input :subject, :input_html => { :style => "width:320px" } %>

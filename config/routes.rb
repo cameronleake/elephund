@@ -10,6 +10,7 @@ ElephundRails::Application.routes.draw do
   get 'account', to: 'events#index', as: 'account'
   get 'users', to: 'users#show', as: 'users'
   get 'contact', to: 'contacts#new', as: 'contact'
+  get 'reset_password', to: 'password_resets#new', as: 'reset_password'
 
   match '404' => 'home#404'
   match '422' => 'home#422'
