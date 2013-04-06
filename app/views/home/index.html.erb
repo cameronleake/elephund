@@ -1,9 +1,54 @@
 <div class="hero-unit">
 	<h1>Welcome!</h1>
 	<p>Elephund keeps track of bills and payments between friends.</p>
+	<div id="myCarousel" class="carousel slide">
+		<ol class="carousel-indicators">
+	   	<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+	    	<li data-target="#myCarousel" data-slide-to="1"></li>
+	    	<li data-target="#myCarousel" data-slide-to="2"></li>
+	  	</ol>
+	  	
+		<!-- Carousel items -->
+	  	<div class="carousel-inner">
+    		<div class="active item">
+   			<%= image_tag "Elephund-Carousel-1.jpg" %>
+				<div class="carousel-caption">
+            	<h4>Bills and Payments</h4>
+			      <p>Elephund helps keep track of shared bills, payments and IOUs between friends, families or people in sharehouses.</p>
+				</div>
+	    	</div>
+	  		<div class="item">
+				<%= image_tag "Elephund-Carousel-2.jpg" %>
+				<div class="carousel-caption">
+            	<h4>Tracking Payments</h4>
+			      <p>Having trouble tracking who has paid you for which bills and when?</p>
+				</div>
+			</div>
+	   	<div class="item">
+				<%= image_tag "Elephund-Carousel-3.jpg" %>
+				<div class="carousel-caption">
+            	<h4>Elephund Can Help</h4>
+			      <p>Elephund provides an easy way to keep track of all your shared bills, payments and IOUs to ensure you always get paid back!</p>
+				</div>
+			</div>
+	 	</div>
+	  
+		<!-- Carousel nav -->
+	  	<a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+	  	<a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+	</div>
+	
 	<p>
-		<a href="tour" class="btn btn-primary btn-large">
-			Learn More
-		</a>
+		<a href="tour" class="btn btn-primary btn-large">Learn More</a>
 	</p>
 </div>
+
+<script type="text/javascript">
+$(document).ready(function () {
+    $('.carousel').carousel({
+        interval: 5000
+    });
+
+    $('.carousel').carousel('cycle');
+});
+</script>

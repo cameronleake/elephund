@@ -14,4 +14,8 @@
 /log/*.log
 /tmp
 
+# Ignore local database config for Development and Test Environments
 /config/database.yml
+
+# Ignore all .DS_Store files
+*.DS_Store
