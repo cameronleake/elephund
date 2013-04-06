@@ -21,8 +21,8 @@ class UsersController < ApplicationController
      @user = User.new(params[:user])
      if @user.save
        cookies[:auth_token] = @user.auth_token    # Save new auth_token in a temporary cookie
-       # UserMailer.welcome_message(@user).deliver
-       redirect_to account_url, notice: "Thank you for signing up!"
+       @user.send_welcome_email
+       redirect_to account_url, notice: "Welcome to Elephund! Please check your email and follow the link to confirm your email address."
      else
        render "new"
       end

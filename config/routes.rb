@@ -27,8 +27,11 @@ ElephundRails::Application.routes.draw do
   resources :participations
   resources :home
   resources :contacts
-
   
+  if Rails.env.development?
+    mount MailPreview => 'mail_view'
+  end
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

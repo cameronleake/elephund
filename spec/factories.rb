@@ -1,11 +1,10 @@
 FactoryGirl.define do
 
   factory :user do
-    sequence(:email) { |n| "foo#{n}@example.com" }
-    password "secret"
     first_name "Test"
     last_name "User"
-    password_reset_token "123456"
+    sequence(:email) { |n| "foo#{n}@example.com" }
+    password "secret"
   end
   
   factory :event do

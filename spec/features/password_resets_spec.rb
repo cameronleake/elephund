@@ -3,7 +3,9 @@ require 'spec_helper'
 describe "PASSWORD RESETS:" do
 
   before(:each) do
-    @user = FactoryGirl.create(:user)
+    @user = FactoryGirl.build(:user)
+    @user.password_reset_token = "123456"
+    @user.save!
   end
   
   after(:each) do
@@ -13,9 +15,9 @@ describe "PASSWORD RESETS:" do
   context "When requesting password reset:" do
     it "Emails user with reset link" do
       visit login_path
-      click_link "password"
+      click_link "Password"
       fill_in "Email", :with => @user.email
-      click_button "Reset Password"
+      click_button "Reset"
       current_path.should eq(root_path)
       page.should have_content("Email sent")
       last_email.to.should include(@user.email)
@@ -23,9 +25,9 @@ describe "PASSWORD RESETS:" do
 
     it "Does not email invalid user when requesting password reset" do
       visit login_path
-      click_link "password"
+      click_link "Password"
       fill_in "Email", :with => "nobody@example.com"
-      click_button "Reset Password"
+      click_button "Reset"
       current_path.should eq(password_resets_path)
       page.should have_content("Invalid Email")
       last_email.should be_nil
@@ -40,7 +42,7 @@ describe "PASSWORD RESETS:" do
       visit edit_password_reset_url(@user.password_reset_token)
       fill_in "user_password", :with => "New_Password"
       fill_in "user_password_confirmation", :with => "New_Password"
-      click_button "Update Password"
+      click_button "Update"
       current_path.should eq(root_path)
       @new_password = User.first.password_digest
       @new_password.should_not eq(@old_password)
@@ -50,7 +52,7 @@ describe "PASSWORD RESETS:" do
       @user.password = SecureRandom.urlsafe_base64
       @user.send_password_reset
       visit edit_password_reset_url(@user.password_reset_token)
-      click_button "Update Password"
+      click_button "Update"
       current_path.should eq("/password_resets/#{@user.password_reset_token}")
       page.should have_content("Invalid Password")
     end

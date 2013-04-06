@@ -13,8 +13,8 @@ describe "ACCESS TO DATABASE VIA DIRECT URL PATHS:" do
   context "When logged in:" do
     it "INDEX page for USERS redirects to SHOW page for current_user" do
       visit login_path
-      fill_in "Email", :with => @user.email
-      fill_in "Password", :with => "secret"
+      fill_in "email", :with => @user.email
+      fill_in "password", :with => "secret"
       click_button "Log In"
       page.should have_content("My Events")
       visit '/users'
@@ -26,8 +26,8 @@ describe "ACCESS TO DATABASE VIA DIRECT URL PATHS:" do
       @user2 = FactoryGirl.create(:user)
       test_id = @user2.id
       visit login_path
-      fill_in "Email", :with => @user.email
-      fill_in "Password", :with => "secret"
+      fill_in "email", :with => @user.email
+      fill_in "password", :with => "secret"
       click_button "Log In"
       page.should have_content("My Events")
       visit "/users/#{test_id}"

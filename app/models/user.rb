@@ -24,4 +24,8 @@ class User < ActiveRecord::Base
     end while User.exists?(column => self[column])
   end
   
+  def send_welcome_email
+    UserMailer.welcome_message(self).deliver
+  end
+  
 end
