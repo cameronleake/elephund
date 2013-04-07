@@ -9,7 +9,7 @@ class UserMailer < ActionMailer::Base
   
   def welcome_message(user)
     @user = user
-    attachments["Elephund_Logo-Email.jpg"] = File.read("#{Rails.root}/public/images/Elephund_Logo-Email.jpg")
+    attachments.inline["Welcome-Email-Header.jpg"] = File.read("#{Rails.root}/app/assets/images/Welcome-Email-Header.jpg")
     mail :to => user.email, :subject => "Welcome to Elephund"
   end
   
