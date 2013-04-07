@@ -5,6 +5,8 @@ FactoryGirl.define do
     last_name "User"
     sequence(:email) { |n| "foo#{n}@example.com" }
     password "secret"
+    email_verified false
+    email_verification_token "987654321"
   end
   
   factory :event do

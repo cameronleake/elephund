@@ -2,6 +2,7 @@ class MailPreview < MailView
 
   def welcome_message
     @user = FactoryGirl.build(:user)
+    @user.email_verification_token = "987654321"
     mail = UserMailer.welcome_message(@user)
   end
   

@@ -346,7 +346,7 @@
                                           	<div mc:edit="std_content00">
                                              	<h2 class="h2">Hello <%= @user.first_name %>!</h2>
                                                 <strong>Welcome! </strong>The team here at Elephund are very proud to have you onboard as part of our Alpha-release, sharing the journey as we grow and expand.  We are constantly updating, improving and growing bigger and better so check back regularly to see whats new!<br /><br />
-																<strong>Confirm Email: </strong>To confirm your email address and validate your new account, please follow this link: <a href="#" target="_blank">Link to Go Here</a><br /><br />
+																<strong>Confirm Email: </strong>To confirm your email address and validate your new account, please follow this link: <%= edit_email_verification_url(@user.email_verification_token) %><br /><br />
 																<strong>Account Details: </strong>For your reference your account details are as follows: <br />
 																<p align="center">
 																	<strong>Full Name: </strong><%= "#{@user.first_name} #{@user.last_name}" %><br />

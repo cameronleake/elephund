@@ -19,6 +19,7 @@ class UsersController < ApplicationController
 
   def create
      @user = User.new(params[:user])
+     @user.email_verification_token = @user.generate_random_token
      if @user.save
        cookies[:auth_token] = @user.auth_token    # Save new auth_token in a temporary cookie
        @user.send_welcome_email
@@ -40,5 +41,6 @@ class UsersController < ApplicationController
    def destroy
      @user = current_user
      @user.destroy
-    end
+   end
+  
 end

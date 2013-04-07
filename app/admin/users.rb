@@ -14,6 +14,7 @@ ActiveAdmin.register User do
     column :last_name
     column :first_name
     column :email
+    column :email_verified
     column :password_reset_sent_at
     column :created_at
     default_actions

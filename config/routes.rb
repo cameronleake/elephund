@@ -27,6 +27,7 @@ ElephundRails::Application.routes.draw do
   resources :participations
   resources :home
   resources :contacts
+  resources :email_verifications
   
   if Rails.env.development?
     mount MailPreview => 'mail_view'

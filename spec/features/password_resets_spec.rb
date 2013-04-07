@@ -17,8 +17,7 @@ describe "PASSWORD RESETS:" do
       visit login_path
       click_link "Password"
       fill_in "Email", :with => @user.email
-      pp @user.password
-      click_button "Reset"
+      click_button "Reset"    
       current_path.should eq(root_path)
       page.should have_content("Email sent")
       last_email.to.should include(@user.email)
@@ -54,7 +53,6 @@ describe "PASSWORD RESETS:" do
       @user.send_password_reset
       visit edit_password_reset_url(@user.password_reset_token)
       click_button "Update"
-      pp current_path
       current_path.should eq("/password_resets/#{@user.password_reset_token}")
       page.should have_content("Invalid Password")
     end

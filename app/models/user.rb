@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   has_secure_password
-  attr_accessible :email, :password, :password_confirmation, :first_name, :last_name
+  attr_accessible :email, :password, :password_confirmation, :first_name, :last_name, :email_verified, :email_verification_token
   validates_presence_of :password, :on => :create
   validates_presence_of :password, :on => :update  
   validates_presence_of :email, :first_name, :last_name
@@ -8,20 +8,23 @@ class User < ActiveRecord::Base
   has_many :participations
   has_many :events, :through => :participations
   
-  before_create { generate_token(:auth_token) }
+  before_create { generate_reset_token(:auth_token) }
   
   def send_password_reset
-    generate_token(:password_reset_token)
+    generate_reset_token(:password_reset_token)
     self.password_reset_sent_at = Time.zone.now
     save!
     UserMailer.password_reset(self).deliver
   end
   
-  # Generates a random token
-  def generate_token(column)
+  def generate_reset_token(column)
     begin
       self[column] = SecureRandom.urlsafe_base64
     end while User.exists?(column => self[column])
+  end
+  
+  def generate_random_token
+     SecureRandom.urlsafe_base64
   end
   
   def send_welcome_email
