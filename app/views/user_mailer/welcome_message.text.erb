@@ -1,0 +1,20 @@
+<%= image_tag "Welcome-Email-Header.jpg" %>
+
+<h2>Hello <%= @user.first_name %>!</h2>
+
+<strong>Welcome! </strong>The team here at Elephund are very proud to have you onboard as part of our Alpha-release, sharing the journey as we grow and expand.  We are constantly updating, improving and growing bigger and better so check back regularly to see whats new!
+
+<strong>Confirm Email: </strong>To confirm your email address and validate your new account, please follow this link: <a href="#" target="_blank">Link to Go Here</a>
+
+<strong>Account Details: </strong>For your reference your account details are as follows:
+<strong>Full Name: </strong><%= "#{@user.first_name} #{@user.last_name}" %>
+<strong>Email: </strong> <%= "#{@user.email}" %>
+<strong>Password: </strong><%= "#{@user.password}" %>
+
+<strong>Contact Us: </strong>Here at Elephund we pride ourselves on User-Driven Development.  That is, we build what you, the user, wants!  We would love to hear what you think of Elephund, any suggestions you have for improvements, new features or anything else you'd like to tell us.  You can contact us at anytime here: <a href="http://www.elephund.com/contact" target="_blank">Contact Us</a>
+
+<strong>Login: </strong><a href="http://www.elephund.com/login" target="_blank">Log Into Elephund Here</a>
+
+
+Copyright: 2013 Elephund, All rights reserved.
+<a href="http://www.elephund.com" target="_blank">Elephund.com</a>

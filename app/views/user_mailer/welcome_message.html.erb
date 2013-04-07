@@ -305,117 +305,119 @@
 			}
 		</style>
 	</head>
-    <body leftmargin="0" marginwidth="0" topmargin="0" marginheight="0" offset="0">
-    	<center>
-        	<table border="0" cellpadding="0" cellspacing="0" height="100%" width="100%" id="backgroundTable">
-            	<tr>
-                	<td align="center" valign="top" style="padding-top:20px;">
-                    	<table border="0" cellpadding="0" cellspacing="0" width="600" id="templateContainer">
-                        	<tr>
-                            	<td align="center" valign="top">
-                                    <!-- // Begin Template Header \\ -->
-                                	<table border="0" cellpadding="0" cellspacing="0" width="600" id="templateHeader">
-                                        <tr>
-                                            <td class="headerContent">
-                                            
-                                            	<!-- // Begin Module: Standard Header Image \\ -->
-                                            	<img src="http://gallery.mailchimp.com/653153ae841fd11de66ad181a/images/placeholder_600.gif" style="max-width:600px;" id="headerImage campaign-icon" mc:label="header_image" mc:edit="header_image" mc:allowdesigner mc:allowtext />
-                                            	<!-- // End Module: Standard Header Image \\ -->
-                                            
-                                            </td>
-                                        </tr>
-                                    </table>
-                                    <!-- // End Template Header \\ -->
-                                </td>
-                            </tr>
-                        	<tr>
-                            	<td align="center" valign="top">
-                                    <!-- // Begin Template Body \\ -->
-                                	<table border="0" cellpadding="0" cellspacing="0" width="600" id="templateBody">
-                                    	<tr>
-                                            <td valign="top">
+   
+	<body leftmargin="0" marginwidth="0" topmargin="0" marginheight="0" offset="0">
+   	<center>
+      	<table border="0" cellpadding="0" cellspacing="0" height="100%" width="100%" id="backgroundTable">
+         	<tr>
+            	<td align="center" valign="top" style="padding-top:20px;">
+               	<table border="0" cellpadding="0" cellspacing="0" width="600" id="templateContainer">
+                  	<tr>
+                     	<td align="center" valign="top">
+
+                        	<!-- // Begin Template Header \\ -->
+                           <table border="0" cellpadding="0" cellspacing="0" width="600" id="templateHeader">
+                           	<tr>
+                              	<td class="headerContent">
+
+                                 	<!-- // Begin Module: Standard Header Image \\ -->
+												<%= image_tag "Welcome-Email-Header.jpg" %>
+                                    <!-- // End Module: Standard Header Image \\ -->
+
+                              	</td>
+                             	</tr>
+                         	</table>
+                           <!-- // End Template Header \\ -->
+
+                      	</td>
+                    	</tr>
+                     <tr>
+                     	<td align="center" valign="top">
+                        	
+									<!-- // Begin Template Body \\ -->
+                           <table border="0" cellpadding="0" cellspacing="0" width="600" id="templateBody">
+                           	<tr>
+                              	<td valign="top">
                                 
-                                                <!-- // Begin Module: Standard Content \\ -->
-                                                <table border="0" cellpadding="20" cellspacing="0" width="100%">
-                                                    <tr>
-                                                        <td valign="top" class="bodyContent">
-                                                            <div mc:edit="std_content00">
-                                                                <h1 class="h1">Elephund</h1>
-                                                                <h2 class="h2">Welcome</h2>
-                                                                <h3 class="h3">Heading 3</h3>
-                                                                <h4 class="h4">Heading 4</h4>
-                                                                <strong>Getting started:</strong> Transactional emails serve a defined and simple purpose. They differ from traditional mass-emails because they're generally sent on a user-by-user basis, instead of large list of users, and are generally used to deliver purchase receipts, account updates, security notifications, and more.
-                                                                <br />
-                                                                <br />
-                                                                Where <a href="http://www.mailchimp.com/" target="_blank">MailChimp</a> can be used to send newsletters to several subscribers in one large blast, <a href="http://www.mandrill.com/" target="_blank">Mandrill</a> is specifically positioned to send transactional emails, and offers relevant tracking and metrics that isn't necessarily available through a traditional email platform.
-                                                            </div>
+                                 	<!-- // Begin Module: Standard Content \\ -->
+                                    <table border="0" cellpadding="20" cellspacing="0" width="100%">
+                                    	<tr>
+                                       	<td valign="top" class="bodyContent">
+                                          	<div mc:edit="std_content00">
+                                             	<h2 class="h2">Hello <%= @user.first_name %>!</h2>
+                                                <strong>Welcome! </strong>The team here at Elephund are very proud to have you onboard as part of our Alpha-release, sharing the journey as we grow and expand.  We are constantly updating, improving and growing bigger and better so check back regularly to see whats new!<br /><br />
+																<strong>Confirm Email: </strong>To confirm your email address and validate your new account, please follow this link: <a href="#" target="_blank">Link to Go Here</a><br /><br />
+																<strong>Account Details: </strong>For your reference your account details are as follows: <br />
+																<p align="center">
+																	<strong>Full Name: </strong><%= "#{@user.first_name} #{@user.last_name}" %><br />
+																	<strong>Email: </strong><%= "#{@user.email}" %><br />
+																	<strong>Password: </strong><%= "#{@user.password}" %><br /><br />
+																</p>
+																<strong>Contact Us: </strong>Here at Elephund we pride ourselves on User-Driven Development.  That is, we build what you, the user, wants!  We would love to hear what you think of Elephund, any suggestions you have for improvements, new features or anything else you'd like to tell us.  You can contact us at anytime here: <a href="http://www.elephund.com/contact" target="_blank">Contact Us</a><br /><br />
+                                            	</div>
 														</td>
-                                                    </tr>
-                                                    <tr>
-                                                    	<td align="center" valign="top" style="padding-top:0;">
-                                                        	<table border="0" cellpadding="15" cellspacing="0" class="templateButton">
-                                                            	<tr>
-                                                                	<td valign="middle" class="templateButtonContent">
-                                                                    	<div mc:edit="std_content01">
-                                                                        	<a href="http://www.elephund.com/login" target="_blank">Log Into Your Account</a>
-                                                                        </div>
-                                                                    </td>
-                                                                </tr>
-                                                            </table>
-                                                        </td>
-                                                    </tr>
-                                                </table>
-                                                <!-- // End Module: Standard Content \\ -->
+                                      	</tr>
+                                       <tr>
+                                       	<td align="center" valign="top" style="padding-top:0;">
+                                          	<table border="0" cellpadding="15" cellspacing="0" class="templateButton">
+                                             	<tr>
+                                                	<td valign="middle" class="templateButtonContent">
+                                                   	<div mc:edit="std_content01">
+                                                      	<a href="http://www.elephund.com/login" target="_blank">Log Into Elephund</a>
+                                                    	</div>
+              													</td>
+             												</tr>
+            											</table>
+           											</td>
+          										</tr>
+         									</table>
+            								<!-- // End Module: Standard Content \\ -->
                                                 
                                             </td>
                                         </tr>
                                     </table>
                                     <!-- // End Template Body \\ -->
-                                </td>
-                            </tr>
-                        	<tr>
-                            	<td align="center" valign="top">
-                                    <!-- // Begin Template Footer \\ -->
-                                	<table border="0" cellpadding="10" cellspacing="0" width="600" id="templateFooter">
-                                    	<tr>
-                                        	<td valign="top" class="footerContent">
+
+ 											</td>
+										</tr>
+										<tr>
+											<td align="center" valign="top">
+											
+											<!-- // Begin Template Footer \\ -->
+											<table border="0" cellpadding="10" cellspacing="0" width="600" id="templateFooter">
+   											<tr>
+    												<td valign="top" class="footerContent">
                                             
-                                                <!-- // Begin Module: Transactional Footer \\ -->
-                                                <table border="0" cellpadding="10" cellspacing="0" width="100%">
-                                                    <tr>
-                                                        <td valign="top">
-                                                            <div mc:edit="std_footer">
-																<em>Copyright &copy; *|CURRENT_YEAR|* *|LIST:COMPANY|*, All rights reserved.</em>
-																<br />
-																*|IFNOT:ARCHIVE_PAGE|* *|LIST:DESCRIPTION|*
-																<br />
-																<strong>Our mailing address is:</strong>
-																<br />
-																*|HTML:LIST_ADDRESS_HTML|**|END:IF|* 
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td valign="middle" id="utility">
-                                                            <div mc:edit="std_utility">
-                                                                &nbsp;<a href="*|ARCHIVE|*" target="_blank">view this in your browser</a> | <a href="*|UNSUB|*">unsubscribe from this list</a> | <a href="*|UPDATE_PROFILE|*">update subscription preferences</a>&nbsp;
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                </table>
-                                                <!-- // End Module: Transactional Footer \\ -->
+         											<!-- // Begin Module: Transactional Footer \\ -->
+      												<table border="0" cellpadding="10" cellspacing="0" width="100%">
+          												<tr>
+           													<td valign="top">
+            													<div mc:edit="std_footer">
+																		<em>Copyright &copy; 2013 Elephund, All rights reserved.</em><br />
+      															</div>
+																</td>
+    														</tr>
+       													<tr>
+           													<td valign="middle" id="utility">
+            													<div mc:edit="std_utility">
+             														&nbsp;<a href="http://www.elephund.com" target="_blank">Elephund.com</a>&nbsp;
+      															</div>
+     															</td>
+    														</tr>
+   													</table>
+      												<!-- // End Module: Transactional Footer \\ -->
                                             
-                                            </td>
-                                        </tr>
-                                    </table>
-                                    <!-- // End Template Footer \\ -->
-                                </td>
-                            </tr>
-                        </table>
-                        <br />
-                    </td>
-                </tr>
-            </table>
-        </center>
-    </body>
+  													</td>
+ 												</tr>
+ 											</table>
+   										<!-- // End Template Footer \\ -->
+
+										</td>
+									</tr>
+								</table><br />
+							</td>
+						</tr>
+					</table>
+				</center>
+		</body>
 </html>
