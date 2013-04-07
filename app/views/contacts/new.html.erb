@@ -13,7 +13,7 @@
 	  	<%= f.input :name %>
 	  	<%= f.input :email %>
 	  	<%= f.input :subject, :input_html => { :style => "width:320px" } %>
-	  	<%= f.input :body, as: :text, :input_html => { :style => "width:320px", :rows => 12 } %>
+	  	<%= f.input :body, as: :text, :label => "Message", :input_html => { :style => "width:320px", :rows => 12 } %>
 
   	<div class="form-actions">
    	<%= f.button :submit, :value => "Submit", :class => 'btn-primary' %>

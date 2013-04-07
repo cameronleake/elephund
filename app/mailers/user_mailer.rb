@@ -3,7 +3,7 @@ class UserMailer < ActionMailer::Base
 
   def password_reset(user)
     @user = user
-    attachments["Elephund_Logo-Email.jpg"] = File.read("#{Rails.root}/public/images/Elephund_Logo-Email.jpg")
+    attachments.inline["Welcome-Email-Header.jpg"] = File.read("#{Rails.root}/app/assets/images/Welcome-Email-Header.jpg")
     mail :to => user.email, :subject => "Password Reset"
   end
   

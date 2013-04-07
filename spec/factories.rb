@@ -13,10 +13,10 @@ FactoryGirl.define do
   end
   
   factory :contact do
-    name "Test User"
-    email "Test@example.com"
-    sequence(:subject) { |n| "Test Contact Us Form: ##{n}" }
-    body "Test body"
+    name "Example User Name"
+    email "TestUser@example.com"
+    sequence(:subject) { |n| "Example Subject: ##{n}" }
+    body "Example contact us message"
   end
   
 end
