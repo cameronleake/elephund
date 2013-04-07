@@ -15,7 +15,7 @@ FactoryGirl.define do
   factory :contact do
     name "Example User Name"
     email "TestUser@example.com"
-    sequence(:subject) { |n| "Example Subject: ##{n}" }
+    subject "Some subject text"
     body "Example contact us message"
   end
   

@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   has_secure_password
   attr_accessible :email, :password, :password_confirmation, :first_name, :last_name
   validates_presence_of :password, :on => :create
-  validates_presence_of :password, :on => :update
+  validates_presence_of :password, :on => :update  
   validates_presence_of :email, :first_name, :last_name
   validates_uniqueness_of :email
   has_many :participations
