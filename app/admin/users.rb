@@ -25,7 +25,8 @@ ActiveAdmin.register User do
       f.input :first_name              
       f.input :last_name             
       f.input :email
-      f.input :password  
+      f.input :password 
+      f.input :email_verified
     end                               
     f.actions                         
   end

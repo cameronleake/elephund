@@ -31,4 +31,8 @@ class User < ActiveRecord::Base
     UserMailer.welcome_message(self).deliver
   end
   
+  def send_verification_email
+    UserMailer.email_verification_message(self).deliver
+  end
+  
 end

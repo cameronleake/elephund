@@ -5,7 +5,13 @@ class MailPreview < MailView
     @user.email_verification_token = "987654321"
     mail = UserMailer.welcome_message(@user)
   end
-  
+    
+  def email_verification_message
+    @user = FactoryGirl.build(:user)
+    @user.email_verification_token = "987654321"
+    mail = UserMailer.email_verification_message(@user)
+  end
+
   def password_reset
     @user = FactoryGirl.build(:user)
     @user.password_reset_token = "123456"

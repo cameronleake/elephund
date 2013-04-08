@@ -1,0 +1,12 @@
+<%= image_tag attachments['Welcome-Email-Header.jpg'].url, :alt => 'Welcome Email Header' %>
+
+<h2>Hello <%= @user.first_name %>!</h2>
+
+To verify this email address for your Elephund account, please follow the link below:
+
+<strong><%= edit_email_verification_url(@user.email_verification_token) %></strong>
+
+
+
+Copyright: 2013 Elephund, All rights reserved.
+<a href="http://www.elephund.com" target="_blank">Elephund.com</a>

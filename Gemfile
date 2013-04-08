@@ -28,7 +28,7 @@ group :test, :development do
   gem "rspec-rails"
   gem "growl"
   gem "factory_girl_rails"
-  gem 'mail_view', :git => 'https://github.com/37signals/mail_view.git'
+  gem "mail_view", "~> 1.0.3"
 end
 
 group :test do

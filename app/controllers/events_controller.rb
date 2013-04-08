@@ -3,7 +3,11 @@ class EventsController < ApplicationController
 
   def index
     @user = current_user
-    @events = @user.events    # Only show events which belong to the current user, (associated through the PARTICIPATIONS table)
+    @events = @user.events
+    if @user.email_verified == false
+      flash.now.alert = "Email address not yet verified! #{ActionController::Base.helpers.link_to "Click here to send verification email.", 
+                          sendmessage_email_verification_path(@user)}".html_safe
+    end
   end
 
   def show
