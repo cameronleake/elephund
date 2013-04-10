@@ -1,15 +1,14 @@
 #!/usr/bin/env ruby
 # -*- ruby -*-
 require 'rubygems'
-require 'daemon_spawn'
+require 'daemon-spawn'
 
 RAILS_ROOT = File.expand_path(File.join(File.dirname(__FILE__), '..'))
 
 class DelayedJobWorker < DaemonSpawn::Base
   def start(args)
     ENV['RAILS_ENV'] ||= args.first || 'development'
-    Dir.chdir RAILS_ROOT
-    require File.join('config', 'environment')
+    require File.join(RAILS_ROOT, 'config', 'environment')
 
     Delayed::Worker.new.start
   end
