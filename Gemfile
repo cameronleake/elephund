@@ -25,7 +25,7 @@ gem 'jquery-rails'
 
 gem 'newrelic_rpm'
 
-gem 'daemons'
+gem 'alexvollmer-daemon-spawn'
 gem 'delayed_job_active_record'
 gem 'delayed_job_web'
 
