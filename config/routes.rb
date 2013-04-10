@@ -32,10 +32,6 @@ ElephundRails::Application.routes.draw do
       get 'sendmessage'
     end
   end
-  
-  if Rails.env.development?
-    mount MailPreview => 'mail_view'
-  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
