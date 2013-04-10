@@ -21,7 +21,7 @@ describe "EMAIL VERIFICATION:" do
       visit "http://localhost:3000/email_verifications/#{@user.email_verification_token}/edit"
       current_path.should eq(root_path)
       User.find(:last).email_verified.should eq(true)
-      page.should have_content("Email Address Verified")      
+      page.should have_content("email address has been verified")      
     end
   end
   
@@ -40,7 +40,7 @@ describe "EMAIL VERIFICATION:" do
       fill_in "email", :with => @user.email
       fill_in "password", :with => @user.password
       click_button "Log In"
-      page.should have_content("Email address not verified")   
+      page.should have_content("Email address not yet verified")   
       # page.should have_content(sendmessage_email_verification_path(@user)) # ???
     end
     

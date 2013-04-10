@@ -29,7 +29,7 @@ describe "PASSWORD RESETS:" do
       fill_in "Email", :with => "nobody@example.com"
       click_button "Reset"
       current_path.should eq(password_resets_path)
-      page.should have_content("Invalid Email")
+      page.should have_content("Invalid email address")
       last_email.should be_nil
     end
   end
@@ -54,7 +54,7 @@ describe "PASSWORD RESETS:" do
       visit edit_password_reset_url(@user.password_reset_token)
       click_button "Update"
       current_path.should eq("/password_resets/#{@user.password_reset_token}")
-      page.should have_content("Invalid Password")
+      page.should have_content("Invalid password")
     end
   end
 end
