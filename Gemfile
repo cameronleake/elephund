@@ -5,8 +5,7 @@ gem 'rails', '3.2.12'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
-
+# gem 'sqlite3'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -20,10 +19,15 @@ group :assets do
   gem 'bootswatch-rails'
   gem 'therubyracer', :require => 'v8'
   gem 'less-rails'
-  gem 'newrelic_rpm'
 end
 
 gem 'jquery-rails'
+
+gem 'newrelic_rpm'
+
+gem 'daemons'
+gem 'delayed_job_active_record'
+gem 'delayed_job_web'
 
 group :test, :development do
   gem "factory_girl_rails"

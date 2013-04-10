@@ -22,7 +22,7 @@ class UsersController < ApplicationController
      @user.email_verification_token = @user.generate_random_token
      if @user.save
        cookies[:auth_token] = @user.auth_token    # Save new auth_token in a temporary cookie
-       @user.send_welcome_email
+       @user.delay.send_welcome_email
        redirect_to account_url, notice: "Welcome to Elephund! Please check your email and follow the link to confirm your email address."
      else
        render "new"

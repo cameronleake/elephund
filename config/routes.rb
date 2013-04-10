@@ -32,6 +32,8 @@ ElephundRails::Application.routes.draw do
       get 'sendmessage'
     end
   end
+  
+  match "/delayed_job" => DelayedJobWeb, :anchor => false
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

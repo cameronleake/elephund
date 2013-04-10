@@ -1,4 +1,5 @@
 require "bundler/capistrano"
+require "delayed/recipes"
 
 server "182.160.154.120", :web, :app, :db, primary: true
 
@@ -19,11 +20,17 @@ set :default_environment, {
   'GEM_PATH' => '/home/deployer/.rvm/gems/ruby-1.9.3-p392' 
 }
 
+set :rails_env, "production" #added for delayed job
+
 default_run_options[:pty] = true
 ssh_options[:forward_agent] = true
 
 after "deploy", "deploy:cleanup" # keep only the last 5 releases
 after "deploy:update_code", "deploy:migrate"
+
+after "deploy:stop",    "delayed_job:stop"
+after "deploy:start",   "delayed_job:start"
+after "deploy:restart", "delayed_job:restart"
 
 namespace :deploy do
   %w[start stop restart].each do |command|
