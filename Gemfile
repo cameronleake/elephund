@@ -20,7 +20,7 @@ group :assets do
   gem 'bootswatch-rails'
   gem 'therubyracer', :require => 'v8'
   gem 'less-rails'
-  gem 'newrelic_rpm'
+  # gem 'newrelic_rpm'
 end
 
 gem 'jquery-rails'
