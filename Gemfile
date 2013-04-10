@@ -20,6 +20,7 @@ group :assets do
   gem 'bootswatch-rails'
   gem 'therubyracer', :require => 'v8'
   gem 'less-rails'
+  gem 'newrelic_rpm'
 end
 
 gem 'jquery-rails'
@@ -28,7 +29,7 @@ group :test, :development do
   gem "rspec-rails"
   gem "growl"
   gem "factory_girl_rails"
-  gem "mail_view", "~> 1.0.3"
+  gem 'mail_view', :git => 'https://github.com/37signals/mail_view.git'
 end
 
 group :test do
