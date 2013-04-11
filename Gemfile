@@ -29,8 +29,10 @@ gem 'daemons'
 gem 'delayed_job_active_record'
 gem 'delayed_job_web'
 
+gem "factory_girl_rails"
+
+
 group :test, :development do
-  gem "factory_girl_rails"
   gem "rspec-rails"
   gem "growl"
 end

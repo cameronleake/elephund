@@ -14,8 +14,8 @@ class ContactsController < ApplicationController
   def create
     @contact = Contact.new(params[:contact])
     if @contact.save
-      Delayed::Job.enqueue ContactFormJob.new(@contact)
-      # @contact.delay.send_contact_form
+      # Delayed::Job.enqueue ContactFormJob.new(@contact)
+      @contact.delay.send_contact_form
       redirect_to root_path, notice: "Form submitted!"
     else
       flash.now.alert = "Please fill in all fields."
