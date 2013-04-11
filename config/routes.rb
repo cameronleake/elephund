@@ -33,7 +33,7 @@ ElephundRails::Application.routes.draw do
     end
   end
   
-  # match "/delayed_job" => DelayedJobWeb, :anchor => false
+  match "/delayed_job" => DelayedJobWeb, :anchor => false
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
