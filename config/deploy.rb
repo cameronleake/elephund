@@ -20,7 +20,7 @@ set :default_environment, {
   'GEM_PATH' => '/home/deployer/.rvm/gems/ruby-1.9.3-p392' 
 }
 
-# set :rails_env, "production" #added for delayed job
+set :rails_env, "production" #added for delayed job
 
 default_run_options[:pty] = true
 ssh_options[:forward_agent] = true
