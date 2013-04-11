@@ -25,9 +25,9 @@ gem 'jquery-rails'
 
 gem 'newrelic_rpm'
 
-# gem 'daemons'
-# gem 'delayed_job_active_record'
-# gem 'delayed_job_web'
+gem 'daemons'
+gem 'delayed_job_active_record'
+gem 'delayed_job_web'
 
 group :test, :development do
   gem "factory_girl_rails"
